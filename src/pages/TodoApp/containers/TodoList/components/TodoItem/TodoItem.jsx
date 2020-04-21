@@ -1,6 +1,13 @@
 import React, { useState, useCallback, useEffect } from "react";
 
-import { ListItem } from "../../TodoList.style";
+import Icon from "../../../../../../components/Icon/Icon";
+
+import {
+  ListItem,
+  Title,
+  ContentButtons,
+  ButtonIcon
+} from "../../TodoList.style";
 
 const TodoItem = ({
   id,
@@ -20,7 +27,7 @@ const TodoItem = ({
     onStatusUpdate(id, isChecked);
   }, [onStatusUpdate, id, isChecked]);
 
-  const handleTitleUpdate = useCallback(() => {
+  const handleModalOpen = useCallback(() => {
     onModalOpen(id);
   }, [onModalOpen, id]);
 
@@ -30,10 +37,16 @@ const TodoItem = ({
 
   return (
     <ListItem>
-      <span>{title}</span>
-      <button onClick={handleTitleUpdate}>Update</button>
-      <input type="checkbox" value={isChecked} onChange={handleChange} />
-      <button onClick={hanldeDelete}>Delete</button>
+      <Title Completed={completed}>{title}</Title>
+      <ContentButtons>
+        <ButtonIcon onClick={handleModalOpen}>
+          <Icon name="icon-update-title" width={10} height={10} />
+        </ButtonIcon>
+        <input type="checkbox" value={isChecked} onChange={handleChange} />
+        <ButtonIcon onClick={hanldeDelete}>
+          <Icon name="icon-delete-todo" width={10} height={10} />
+        </ButtonIcon>
+      </ContentButtons>
     </ListItem>
   );
 };

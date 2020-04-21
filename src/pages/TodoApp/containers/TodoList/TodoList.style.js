@@ -19,14 +19,39 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+
+  list-style-type: none;
 `;
 
 export const ListItem = styled.li`
-  padding: 20px;
-  margin: 20px;
+  width: 230px;
+  padding: 20px 10px;
+  margin: 10px;
   border-radius: 6px;
 
-  color: #fff;
-  border: 1px solid #0c0f53;
-  background-color: rgba(12, 15, 83, 0.6);
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-content: center;
+
+  color: #b24264;
+  border: 1px solid #b24264;
+
+  font-size: 16px;
+  font-weight: 600;
+`;
+
+export const ContentButtons = styled.section``;
+export const ButtonIcon = styled.button`
+  padding: 4px;
+  border: none;
+  border-radius: 50%;
+
+  background-color: #b24264;
+
+  cursor: pointer;
+`;
+
+export const Title = styled.span`
+  text-decoration: ${props => (props.Completed ? "line-through " : "none")};
 `;
