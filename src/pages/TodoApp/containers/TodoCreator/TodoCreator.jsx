@@ -5,7 +5,13 @@ import * as yup from "yup";
 import TodosContext from "../../../../store/todos/Context";
 import * as todosActions from "../../../../store/todos/actions/actions";
 
-import { Container } from "./TodoCreate.style";
+import {
+  Content,
+  InputContent,
+  Input,
+  ErrMessage,
+  Button
+} from "./TodoCreate.style";
 
 function TodoCreator() {
   const { dispatchToTodos } = useContext(TodosContext);
@@ -24,23 +30,27 @@ function TodoCreator() {
 
   const inputTitle = useRef(null);
   useEffect(() => {
-    // inputTitle.current.focus();
+    inputTitle.current.focus();
   }, [inputTitle]);
 
   return (
-    <Container onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="New Task"
-        autoComplete="off"
-        ref={inputTitle}
-        {...getFieldProps("title")}
-      />
-      {touched.title && errors.title ? <small>{errors.title}</small> : null}
-      <button type="submit" disabled={!isValid}>
+    <Content onSubmit={handleSubmit}>
+      <InputContent>
+        <Input
+          type="text"
+          placeholder="New Task"
+          autoComplete="off"
+          ref={inputTitle}
+          {...getFieldProps("title")}
+        />
+        {touched.title && errors.title ? (
+          <ErrMessage>{errors.title}</ErrMessage>
+        ) : null}
+      </InputContent>
+      <Button type="submit" disabled={!isValid}>
         Add Task
-      </button>
-    </Container>
+      </Button>
+    </Content>
   );
 }
 

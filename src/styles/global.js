@@ -10,7 +10,7 @@ export default createGlobalStyle`
   body {
     font-family: 'Lexend Deca', sans-serif;;
     font-size: 14px;
-    background: #7159c1;
+    background: #3944A2;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }

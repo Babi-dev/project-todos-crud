@@ -8,6 +8,9 @@ function TodoApp() {
     <>
       <Header>
         <TodoCreator />
+        <select>
+          <option>all</option>
+        </select>
       </Header>
       <main>Todo List</main>
       <footer>Todo Footer</footer>
