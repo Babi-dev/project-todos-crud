@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Content = styled.form`
   display: flex;
+  position: relative;
 `;
 
 export const InputContent = styled.section`

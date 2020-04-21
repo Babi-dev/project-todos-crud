@@ -10,7 +10,8 @@ import {
   Button
 } from "../../../TodoCreator/TodoCreate.style";
 
-import { ContentModal } from "../../TodoList.style";
+import { ContentModal, ButtonCloseModal } from "../../TodoList.style";
+import Icon from "../../../../../../components/Icon/Icon";
 
 function TodoModal({ onModalClose, onTitleUpdate, id }) {
   const { getFieldProps, handleSubmit, touched, errors, isValid } = useFormik({
@@ -27,7 +28,9 @@ function TodoModal({ onModalClose, onTitleUpdate, id }) {
   });
   return (
     <ContentModal>
-      <button onClick={onModalClose}>Close</button>
+      <ButtonCloseModal onClick={onModalClose}>
+        <Icon name="icon-delete-todo" width={16} height={16} />
+      </ButtonCloseModal>
       <Content onSubmit={handleSubmit}>
         <InputContent>
           <Input

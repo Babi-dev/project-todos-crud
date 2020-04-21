@@ -4,7 +4,7 @@ export const Content = styled.main`
   width: 100%;
   height: calc(100vh - 80px);
   top: 40px;
-  padding: 40px 60px;
+  padding: 40px 30px;
 
   position: relative;
   display: flex;
@@ -34,7 +34,6 @@ export const ListItem = styled.li`
   justify-content: space-between;
   align-content: center;
 
-  /* background-color: #3944a2; */
   color: #fff;
   border: 1px solid #5f72e5;
 
@@ -116,11 +115,28 @@ export const ContentModal = styled.section`
   align-items: center;
 
   width: 400px;
-  height: 100px;
-  top: calc(50vh - 50px);
+  height: 200px;
+  top: calc(50vh - 100px);
   left: calc(50vh - 200px);
   border-radius: 10px;
 
-  background-color: #fff;
+  background-color: #3944a2;
   border: 1px solid #5f72e5;
+`;
+
+export const ButtonCloseModal = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px;
+  border-radius: 50%;
+  border: none;
+
+  background-color: #5f72e5;
+
+  cursor: pointer;
+
+  :hover {
+    background-color: #0b0f53;
+  }
 `;

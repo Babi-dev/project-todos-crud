@@ -9,6 +9,6 @@ export const ContentHeader = styled.header`
 
   width: 100%;
   height: 80px;
-  padding: 0 20px;
+  padding: 0 30px;
   top: 0;
 `;
