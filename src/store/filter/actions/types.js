@@ -1,0 +1,1 @@
+export const SET_TOGGLE_FILTER = "SET_TOGGLE_FILTER";
