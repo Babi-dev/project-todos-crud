@@ -1,16 +1,16 @@
-import uuidv4 from "uuid/v4";
+import * as todosTypes from "../actions/types";
 
-import * as todoTypes from "../actions/types";
+const uuidv4 = require("uuid/v4");
 
 function reducer(state, { type, payload }) {
   switch (type) {
-    case todoTypes.ADD_TODO:
+    case todosTypes.ADD_TODO:
       return state.concat({
         id: uuidv4(),
         title: payload.title,
         completed: false
       });
-    case todoTypes.UPDATE_TOGGLE_TODO_STATUS:
+    case todosTypes.UPDATE_TOGGLE_TODO_STATUS:
       return state.map(todo => {
         if (todo.id === payload.id) {
           return {
@@ -21,7 +21,7 @@ function reducer(state, { type, payload }) {
           return todo;
         }
       });
-    case todoTypes.UPDATE_TOGGLE_TODO_TITLE:
+    case todosTypes.UPDATE_TOGGLE_TODO_TITLE:
       return state.map(todo => {
         if (todo.id === payload.id) {
           return {
@@ -32,7 +32,7 @@ function reducer(state, { type, payload }) {
           return todo;
         }
       });
-    case todoTypes.REMOVE_TODO:
+    case todosTypes.REMOVE_TODO:
       return state.filter(todo => {
         return todo.id !== payload.id;
       });
