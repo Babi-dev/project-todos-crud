@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContentHeader = styled.header`
-  position: fixed;
+  position: absolute;
   display: flex;
   justify-content: space-between;
   align-content: center;

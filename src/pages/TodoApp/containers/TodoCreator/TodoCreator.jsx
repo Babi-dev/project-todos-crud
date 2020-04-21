@@ -24,13 +24,13 @@ function TodoCreator() {
     }),
     onSubmit: (values, formikBag) => {
       dispatchToTodos(todosActions.addTodo(values.title));
-      formikBag.setFieldValue("title", "");
+      formikBag.setFieldValue("title", "", false);
     }
   });
 
   const inputTitle = useRef(null);
   useEffect(() => {
-    inputTitle.current.focus();
+    // inputTitle.current.focus();
   }, [inputTitle]);
 
   return (

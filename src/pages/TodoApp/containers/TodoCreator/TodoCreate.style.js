@@ -51,4 +51,9 @@ export const Button = styled.button`
   :hover {
     background-color: #0c0f53;
   }
+
+  :disabled {
+    opacity: 0.6;
+    background-color: #5f72e5;
+  }
 `;

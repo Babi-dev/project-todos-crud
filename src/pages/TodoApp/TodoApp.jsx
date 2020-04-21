@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from "../../components/Header/Header";
 import TodoCreator from "./containers/TodoCreator/TodoCreator";
+import TodoList from "./containers/TodoList/TodoList";
 
 function TodoApp() {
   return (
@@ -12,8 +13,8 @@ function TodoApp() {
           <option>all</option>
         </select>
       </Header>
-      <main>Todo List</main>
-      <footer>Todo Footer</footer>
+      <TodoList />
+      {/* <footer>Todo Footer</footer> */}
     </>
   );
 }
