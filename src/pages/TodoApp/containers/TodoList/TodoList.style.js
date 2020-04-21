@@ -34,24 +34,93 @@ export const ListItem = styled.li`
   justify-content: space-between;
   align-content: center;
 
-  color: #b24264;
-  border: 1px solid #b24264;
+  /* background-color: #3944a2; */
+  color: #fff;
+  border: 1px solid #5f72e5;
 
   font-size: 16px;
   font-weight: 600;
 `;
 
-export const ContentButtons = styled.section``;
+export const ContentButtons = styled.section`
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-content: center;
+  gap: 5px;
+`;
+
 export const ButtonIcon = styled.button`
-  padding: 4px;
+  padding: 6px;
   border: none;
   border-radius: 50%;
 
-  background-color: #b24264;
+  background-color: ${props => (props.primary ? "#459978" : "#EB1C38")};
 
   cursor: pointer;
 `;
 
+export const CheckBox = styled.input`
+  position: relative;
+
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+
+  background-color: #eeecfb;
+  box-shadow: inset 0px 0px 4px 2px #aba2eb;
+
+  appearance: none;
+  cursor: pointer;
+
+  ::before {
+    content: "";
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+
+    background-color: #eb1c38;
+
+    transform: scale(1.1);
+    transition: all 400ms;
+  }
+
+  :checked {
+    background-color: #7abca1;
+    box-shadow: inset 0px 0px 4px 2px #57997e;
+  }
+
+  :checked::before {
+    left: 20px;
+    background-color: #459978;
+    box-shadow: inset 0px 0px 4px 2px #318261;
+  }
+`;
+
 export const Title = styled.span`
-  text-decoration: ${props => (props.Completed ? "line-through " : "none")};
+  font-size: 18px;
+  text-decoration: ${props => (props.Completed ? "line-through" : "none")};
+`;
+
+export const ContentModal = styled.section`
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  width: 400px;
+  height: 100px;
+  top: calc(50vh - 50px);
+  left: calc(50vh - 200px);
+  border-radius: 10px;
+
+  background-color: #fff;
+  border: 1px solid #5f72e5;
 `;

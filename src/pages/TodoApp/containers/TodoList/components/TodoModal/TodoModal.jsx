@@ -10,6 +10,8 @@ import {
   Button
 } from "../../../TodoCreator/TodoCreate.style";
 
+import { ContentModal } from "../../TodoList.style";
+
 function TodoModal({ onModalClose, onTitleUpdate, id }) {
   const { getFieldProps, handleSubmit, touched, errors, isValid } = useFormik({
     initialValues: {
@@ -24,7 +26,8 @@ function TodoModal({ onModalClose, onTitleUpdate, id }) {
     }
   });
   return (
-    <>
+    <ContentModal>
+      <button onClick={onModalClose}>Close</button>
       <Content onSubmit={handleSubmit}>
         <InputContent>
           <Input
@@ -42,8 +45,7 @@ function TodoModal({ onModalClose, onTitleUpdate, id }) {
           Update Task
         </Button>
       </Content>
-      <button onClick={onModalClose}>Close</button>
-    </>
+    </ContentModal>
   );
 }
 

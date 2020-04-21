@@ -6,7 +6,8 @@ import {
   ListItem,
   Title,
   ContentButtons,
-  ButtonIcon
+  ButtonIcon,
+  CheckBox
 } from "../../TodoList.style";
 
 const TodoItem = ({
@@ -39,10 +40,10 @@ const TodoItem = ({
     <ListItem>
       <Title Completed={completed}>{title}</Title>
       <ContentButtons>
-        <ButtonIcon onClick={handleModalOpen}>
+        <ButtonIcon primary onClick={handleModalOpen}>
           <Icon name="icon-update-title" width={10} height={10} />
         </ButtonIcon>
-        <input type="checkbox" value={isChecked} onChange={handleChange} />
+        <CheckBox type="checkbox" value={isChecked} onChange={handleChange} />
         <ButtonIcon onClick={hanldeDelete}>
           <Icon name="icon-delete-todo" width={10} height={10} />
         </ButtonIcon>
