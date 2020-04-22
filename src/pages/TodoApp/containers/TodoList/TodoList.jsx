@@ -42,6 +42,16 @@ function TodoList() {
     setCurId(null);
   }, []);
 
+  const getTitle = useCallback(
+    id => {
+      const curTodo = todos.find(todo => {
+        return todo.id === id;
+      });
+      return curTodo.title;
+    },
+    [todos]
+  );
+
   return (
     <Content>
       <List>
@@ -64,6 +74,7 @@ function TodoList() {
           id={curId}
           onModalClose={handleModalClose}
           onTitleUpdate={handleTitleUpdate}
+          findTitle={getTitle}
         />
       )}
     </Content>

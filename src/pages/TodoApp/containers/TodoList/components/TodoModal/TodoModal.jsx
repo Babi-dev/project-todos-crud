@@ -13,10 +13,10 @@ import {
 } from "../../../TodoCreator/TodoCreate.style";
 import { ContentModal, ButtonCloseModal, BackDrop } from "../../TodoList.style";
 
-function TodoModal({ onModalClose, onTitleUpdate, id }) {
+function TodoModal({ id, onModalClose, onTitleUpdate, findTitle }) {
   const { getFieldProps, handleSubmit, touched, errors, isValid } = useFormik({
     initialValues: {
-      title: ""
+      title: findTitle(id)
     },
     validationSchema: yup.object({
       title: yup.string().required("You need to complete with a task")
@@ -27,6 +27,7 @@ function TodoModal({ onModalClose, onTitleUpdate, id }) {
       onModalClose();
     }
   });
+
   return (
     <>
       <BackDrop onClick={onModalClose} />
@@ -40,7 +41,6 @@ function TodoModal({ onModalClose, onTitleUpdate, id }) {
               type="text"
               placeholder="New Title"
               autoComplete="off"
-              // ref={inputTitle}
               {...getFieldProps("title")}
             />
             {touched.title && errors.title ? (
