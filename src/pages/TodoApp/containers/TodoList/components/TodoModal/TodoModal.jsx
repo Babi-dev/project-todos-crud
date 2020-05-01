@@ -14,13 +14,15 @@ import {
 import { ContentModal, ButtonCloseModal, BackDrop } from "../../TodoList.style";
 
 function TodoModal({ id, onModalClose, onTitleUpdate, findTitle }) {
-  const { getFieldProps, handleSubmit, touched, errors, isValid } = useFormik({
+  const { getFieldProps, handleSubmit, errors } = useFormik({
     initialValues: {
       title: findTitle(id)
     },
     validationSchema: yup.object({
       title: yup.string().required("You need to complete with a task")
     }),
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: (values, formikBag) => {
       onTitleUpdate(id, values.title);
       formikBag.setFieldValue("title", "", false);
@@ -43,13 +45,9 @@ function TodoModal({ id, onModalClose, onTitleUpdate, findTitle }) {
               autoComplete="off"
               {...getFieldProps("title")}
             />
-            {touched.title && errors.title ? (
-              <ErrMessage>{errors.title}</ErrMessage>
-            ) : null}
+            {errors.title ? <ErrMessage>{errors.title}</ErrMessage> : null}
           </InputContent>
-          <Button type="submit" disabled={!isValid}>
-            Update Task
-          </Button>
+          <Button type="submit">Update Task</Button>
         </Content>
       </ContentModal>
     </>

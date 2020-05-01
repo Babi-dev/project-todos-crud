@@ -20,7 +20,7 @@ export const Input = styled.input`
   background-color: transparent;
   color: #fff;
 
-  font-size: 15px;
+  font-size: 16px;
 
   ::placeholder {
     color: #fff;
@@ -44,7 +44,7 @@ export const Button = styled.button`
   background-color: #5f72e5;
   color: #fff;
 
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
 
   cursor: pointer;

@@ -13,7 +13,6 @@ function TodoApp() {
         <TodoFilter />
       </Header>
       <TodoList />
-      {/* <footer>Todo Footer</footer> */}
     </>
   );
 }

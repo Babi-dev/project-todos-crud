@@ -43,7 +43,7 @@ const TodoItem = ({
         <ButtonIcon primary onClick={handleModalOpen}>
           <Icon name="icon-update-title" width={10} height={10} />
         </ButtonIcon>
-        <CheckBox type="checkbox" value={isChecked} onChange={handleChange} />
+        <CheckBox type="checkbox" checked={isChecked} onChange={handleChange} />
         <ButtonIcon onClick={hanldeDelete}>
           <Icon name="icon-delete-todo" width={10} height={10} />
         </ButtonIcon>

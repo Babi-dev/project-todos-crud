@@ -15,13 +15,15 @@ import {
 
 function TodoCreator() {
   const { dispatchToTodos } = useContext(TodosContext);
-  const { getFieldProps, handleSubmit, touched, errors, isValid } = useFormik({
+  const { getFieldProps, handleSubmit, errors } = useFormik({
     initialValues: {
       title: ""
     },
     validationSchema: yup.object({
       title: yup.string().required("You need to complete with a task")
     }),
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: (values, formikBag) => {
       dispatchToTodos(todosActions.addTodo(values.title));
       formikBag.setFieldValue("title", "", false);
@@ -29,9 +31,10 @@ function TodoCreator() {
   });
 
   const inputTitle = useRef(null);
+
   useEffect(() => {
     // inputTitle.current.focus();
-  }, [inputTitle]);
+  }, []);
 
   return (
     <Content onSubmit={handleSubmit}>
@@ -43,13 +46,9 @@ function TodoCreator() {
           ref={inputTitle}
           {...getFieldProps("title")}
         />
-        {touched.title && errors.title ? (
-          <ErrMessage>{errors.title}</ErrMessage>
-        ) : null}
+        {errors.title ? <ErrMessage>{errors.title}</ErrMessage> : null}
       </InputContent>
-      <Button type="submit" disabled={!isValid}>
-        Add Task
-      </Button>
+      <Button type="submit">Add Task</Button>
     </Content>
   );
 }

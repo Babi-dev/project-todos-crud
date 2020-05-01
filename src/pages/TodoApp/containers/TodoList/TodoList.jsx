@@ -2,9 +2,12 @@ import React, { useContext, useState, useCallback } from "react";
 
 import TodosContext from "../../../../store/todos/Context";
 import * as todosActions from "../../../../store/todos/actions/actions";
+import FilterContext from "../../../../store/filter/Context";
 
 import TodoItem from "./components/TodoItem/TodoItem";
 import TodoModal from "./components/TodoModal/TodoModal";
+
+import filteredList from "../../../../utils/functions";
 
 import { Content, List } from "./TodoList.style";
 
@@ -52,10 +55,12 @@ function TodoList() {
     [todos]
   );
 
+  const { filter } = useContext(FilterContext);
+
   return (
     <Content>
       <List>
-        {todos?.map(todo => {
+        {filteredList(todos, filter).map(todo => {
           return (
             <TodoItem
               key={todo.id}

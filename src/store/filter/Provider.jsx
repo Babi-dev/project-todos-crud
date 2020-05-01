@@ -4,9 +4,9 @@ import FilterContext from "./Context";
 import filterReducer from "./reducers/reducer";
 
 function Provider({ children }) {
-  const [filter, dispatchFilter] = useReducer(filterReducer, "all");
+  const [filter, dispatchToFilter] = useReducer(filterReducer, "all");
   return (
-    <FilterContext.Provider value={{ filter, dispatchFilter }}>
+    <FilterContext.Provider value={{ filter, dispatchToFilter }}>
       {children}
     </FilterContext.Provider>
   );

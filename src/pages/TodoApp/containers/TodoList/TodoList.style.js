@@ -38,7 +38,7 @@ export const ListItem = styled.li`
   border: 1px solid #5f72e5;
 
   font-size: 16px;
-  font-weight: 600;
+  font-weight: bold;
 `;
 
 export const ContentButtons = styled.section`
