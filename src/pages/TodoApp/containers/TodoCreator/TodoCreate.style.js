@@ -3,11 +3,15 @@ import styled from "styled-components";
 export const Content = styled.form`
   display: flex;
   position: relative;
+
+  @media (max-width: 360px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const InputContent = styled.section`
   display: flex;
-  flex-direction: column;
 `;
 
 export const Input = styled.input`
@@ -53,8 +57,7 @@ export const Button = styled.button`
     background-color: #0c0f53;
   }
 
-  :disabled {
-    opacity: 0.6;
-    background-color: #5f72e5;
+  @media (max-width: 360px) {
+    margin: 10px;
   }
 `;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Content = styled.main`
   width: 100%;
+  min-width: 300px;
   height: calc(100vh - 80px);
   top: 40px;
   padding: 40px 20px;
@@ -11,16 +12,43 @@ export const Content = styled.main`
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  overflow-y: scroll;
+  overflow-y: auto;
+
+  @media (max-width: 720px) {
+    height: calc(100vh - 130px);
+    top: 65px;
+  }
+  @media (max-width: 360px) {
+    height: calc(100vh - 180px);
+    top: 80px;
+  }
 `;
 
 export const List = styled.ul`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
   align-items: center;
 
   list-style-type: none;
+
+  @media (max-width: 1540px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  @media (max-width: 1290px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 780px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 568px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 `;
 
 export const ListItem = styled.li`
